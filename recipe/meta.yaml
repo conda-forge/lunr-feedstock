@@ -33,7 +33,6 @@ test:
     - src/tests
   requires:
     - mock
-    - nltk >=3.2.5
     - nodejs >8,<9
     - pytest
     - pytest-timeout
