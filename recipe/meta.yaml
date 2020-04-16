@@ -1,5 +1,5 @@
 {% set name = "lunr" %}
-{% set version = "0.5.6" %}
+{% set version = "0.5.7" %}
 
 package:
   name: {{ name }}
@@ -7,14 +7,14 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 7be69d7186f65784a4f2adf81e5c58efd6a9921aa95966babcb1f2f2ada75c20
+    sha256: a2347639b9b3f243fe1d4a2fba87dae54e1f9637e4cb7b6a60236ce5b8722a85
     folder: dist
-  - url: https://github.com/yeraydiazdiaz/lunr.py/archive/v{{ version }}.tar.gz
-    sha256: ff8935affb880a1d86e963771fc9b029d19870baebb30b5d8b7a83826d6e61ff
+  - url: https://github.com/yeraydiazdiaz/lunr.py/archive/{{ version }}.tar.gz
+    sha256: aacbad8ff07dfc7967277e70e1eea1a5f074ca24e3c49b649dcfe6941cadb47f
     folder: src
 
 build:
-  number: 1
+  number: 0
   script:
     - cd dist
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
@@ -33,7 +33,8 @@ test:
     - src/tests
   requires:
     - mock
-    - nodejs >8,<9
+    - nodejs
+    - pip
     - pytest
     - pytest-timeout
   imports:
@@ -60,6 +61,8 @@ test:
     - lunr.trimmer
     - lunr.utils
     - lunr.vector
+  commands:
+    - python -m pip check
 
 about:
   home: https://github.com/yeraydiazdiaz/lunr.py
@@ -69,9 +72,8 @@ about:
   summary: A Python implementation of Lunr.js
   doc_url: https://lunr.readthedocs.io
   description: >
-    This Python version of Lunr.js aims to bring the simple and powerful full
-    text search capabilities into Python guaranteeing results as close as the
-    original implementation as possible.
+    This Python version of Lunr.js aims to bring the simple and powerful full text search capabilities into Python guaranteeing results as close as the original implementation
+    as possible.
 
 extra:
   recipe-maintainers:
