@@ -14,19 +14,18 @@ source:
     folder: src
 
 build:
-  number: 1
+  number: 2
   script:
     - cd dist
-    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.5
   run:
-    - enum34  # [py<34]
     - future >=0.16.0
-    - python
+    - python >=3.5
     - six >=1.11.0
 test:
   source_files:
@@ -62,7 +61,7 @@ test:
     - lunr.utils
     - lunr.vector
   commands:
-    - python -m pip check
+    - pip check
 
 about:
   home: https://github.com/yeraydiazdiaz/lunr.py
