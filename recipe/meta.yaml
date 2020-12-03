@@ -15,6 +15,7 @@ source:
 
 build:
   number: 2
+  noarch: python
   script:
     - cd dist
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
