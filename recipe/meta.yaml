@@ -1,5 +1,5 @@
 {% set name = "lunr" %}
-{% set version = "0.5.8" %}
+{% set version = "0.5.9" %}
 
 package:
   name: {{ name }}
@@ -7,14 +7,14 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: c4fb063b98eff775dd638b3df380008ae85e6cb1d1a24d1cd81a10ef6391c26e
+    sha256: 5ee777b068e2234c4a9496ecbd0abe7aa5e8ad5fdc7b79a09876669252b71202
     folder: dist
   - url: https://github.com/yeraydiazdiaz/lunr.py/archive/{{ version }}.tar.gz
-    sha256: 11cd2c35a84dd99c33cd91357969baf59eb9858a66d50dc84158d496f2b906f1
+    sha256: e5aa714d67041a5d115d28328ecb26cc53cfa9810341c403fb62856b2bbb73a2
     folder: src
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script:
     - cd dist
@@ -72,8 +72,7 @@ about:
   summary: A Python implementation of Lunr.js
   doc_url: https://lunr.readthedocs.io
   description: >
-    This Python version of Lunr.js aims to bring the simple and powerful full text search capabilities into Python guaranteeing results as close as the original implementation
-    as possible.
+    This Python version of Lunr.js aims to bring the simple and powerful full text search capabilities into Python guaranteeing results as close as the original implementation as possible.
 
 extra:
   recipe-maintainers:
