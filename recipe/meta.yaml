@@ -1,5 +1,5 @@
 {% set name = "lunr" %}
-{% set version = "0.6.1" %}
+{% set version = "0.6.2" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: d263e494c5f701375c6e07737690e6dad99e4dbe85f57d255ccdb402fbe8ce11
+    sha256: 7983d965bd7baa78cbd4f5b934fc3ef3142c1b6089df6c6fecd66df5bff20921
     folder: dist
   - url: https://github.com/yeraydiazdiaz/lunr.py/archive/{{ version }}.tar.gz
-    sha256: 5d97437ae4f6a201ed8cad03b9307d75f5d6c85dc3749a6d7f66a64962a916df
+    sha256: f14937884a67e4743369e0f8fa7fe93226993c6fdbb26d4d30278451a6aeeac8
     folder: src
 
 build:
