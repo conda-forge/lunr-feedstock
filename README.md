@@ -11,8 +11,9 @@ Summary: A Python implementation of Lunr.js
 
 Documentation: https://lunr.readthedocs.io
 
-This Python version of Lunr.js aims to bring the simple and powerful full text search capabilities into Python guaranteeing results as close as the original implementation as possible.
-
+This Python version of Lunr.js aims to bring the simple and powerful full
+text search capabilities into Python guaranteeing results as close as the
+original implementation as possible.
 
 Current build status
 ====================
