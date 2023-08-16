@@ -29,7 +29,7 @@ test:
     - tests
   requires:
     - nltk
-    - nodejs
+    - nodejs =18
     - pip
     - pytest-cov
     - pytest-timeout
@@ -40,8 +40,8 @@ test:
     - >-
       python -c "_v_ = __import__('lunr').__VERSION__;
       v = __import__('importlib.metadata').metadata.version('lunr');
-      print(v, _v_, '{{version}}');
-      assert ('{{version}}' == _v_ == v)
+      print(v, _v_, '{{ version }}');
+      assert ('{{ version }}' == _v_ == v)
       "
     - >-
       cd tests/acceptance_tests/javascript
