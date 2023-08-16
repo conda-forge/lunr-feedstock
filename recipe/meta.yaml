@@ -44,7 +44,7 @@ test:
   requires:
     - mock
     - nltk
-    - nodejs >=18,<19
+    - nodejs
     - pip
     - pytest
     - pytest-cov
