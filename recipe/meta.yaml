@@ -1,4 +1,4 @@
-{% set version = "0.7.0" %}
+{% set version = "0.7.0.post1" %}
 
 package:
   name: lunr
@@ -6,10 +6,10 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/l/lunr/lunr-{{ version }}.tar.gz
-    sha256: 3f4900fe4c12c231d6ba6a70f19e7e72883f616e4fc84ec38135230e964bdaf0
+    sha256: 00fc98f59b53c7ee0f6384c99e6c099f28cb746ecfff865bbc3705c3e9104bda
     folder: dist
   - url: https://github.com/yeraydiazdiaz/lunr.py/archive/{{ version }}.tar.gz
-    sha256: 3125d17bbe966315a1a10eab8867768fbf4cb5e3efaebda8a9a9a39f7cc6861d
+    sha256: b642d148573e3966c2c45b8f228243156320bb86f9204fe19d9903c389a80524
     folder: src
 
 
@@ -19,12 +19,7 @@ build:
   script: cd dist && {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   script_env:
     - >-
-      PYTEST_ARGS=
-      -vv
-      --cov=lunr
-      --cov-report=term-missing:skip-covered
-      --no-cov-on-fail
-      --cov-fail-under=98
+      PYTEST_ARGS= -vv --cov=lunr --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=98
 
 requirements:
   host:
