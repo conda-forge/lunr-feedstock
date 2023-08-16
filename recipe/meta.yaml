@@ -1,39 +1,53 @@
-{% set name = "lunr" %}
-{% set version = "0.6.2" %}
+{% set version = "0.7.0" %}
 
 package:
-  name: {{ name }}
+  name: lunr
   version: {{ version }}
 
 source:
-  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 7983d965bd7baa78cbd4f5b934fc3ef3142c1b6089df6c6fecd66df5bff20921
+  - url: https://pypi.io/packages/source/l/lunr/lunr-{{ version }}.tar.gz
+    sha256: 3f4900fe4c12c231d6ba6a70f19e7e72883f616e4fc84ec38135230e964bdaf0
     folder: dist
   - url: https://github.com/yeraydiazdiaz/lunr.py/archive/{{ version }}.tar.gz
-    sha256: f14937884a67e4743369e0f8fa7fe93226993c6fdbb26d4d30278451a6aeeac8
+    sha256: 3125d17bbe966315a1a10eab8867768fbf4cb5e3efaebda8a9a9a39f7cc6861d
     folder: src
+
 
 build:
   number: 0
   noarch: python
-  script:
-    - cd dist
-    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
+  script: cd dist && {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  script_env:
+    - >-
+      PYTEST_ARGS=
+      -vv
+      --cov=lunr
+      --cov-report=term-missing:skip-covered
+      --no-cov-on-fail
+      --cov-fail-under=98
 
 requirements:
   host:
+    - hatch-fancy-pypi-readme >=22.8.0
+    - hatch-vcs
+    - hatchling
     - pip
-    - python >=3.6
+    - python >=3.7
   run:
-    - python >=3.6
+    - importlib-metadata
+    - importlib_resources
+    - python >=3.7
+
 test:
   source_files:
     - src/tests
   requires:
     - mock
+    - nltk
     - nodejs
     - pip
     - pytest
+    - pytest-cov
     - pytest-timeout
   imports:
     - lunr
@@ -69,8 +83,10 @@ about:
   license_file: dist/LICENSE
   summary: A Python implementation of Lunr.js
   doc_url: https://lunr.readthedocs.io
-  description: >
-    This Python version of Lunr.js aims to bring the simple and powerful full text search capabilities into Python guaranteeing results as close as the original implementation as possible.
+  description: |-
+    This Python version of Lunr.js aims to bring the simple and powerful full
+    text search capabilities into Python guaranteeing results as close as the
+    original implementation as possible.
 
 extra:
   recipe-maintainers:
