@@ -5,13 +5,26 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/l/lunr/lunr-{{ version }}.tar.gz
-  sha256: 3f4900fe4c12c231d6ba6a70f19e7e72883f616e4fc84ec38135230e964bdaf0
+  - url: https://pypi.io/packages/source/l/lunr/lunr-{{ version }}.tar.gz
+    sha256: 3f4900fe4c12c231d6ba6a70f19e7e72883f616e4fc84ec38135230e964bdaf0
+    folder: dist
+  - url: https://github.com/yeraydiazdiaz/lunr.py/archive/{{ version }}.tar.gz
+    sha256: 3125d17bbe966315a1a10eab8867768fbf4cb5e3efaebda8a9a9a39f7cc6861d
+    folder: src
+
 
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  script: cd dist && {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  script_env:
+    - >-
+      PYTEST_ARGS=
+      -vv
+      --cov=lunr
+      --cov-report=term-missing:skip-covered
+      --no-cov-on-fail
+      --cov-fail-under=98
 
 requirements:
   host:
@@ -22,16 +35,19 @@ requirements:
     - python >=3.7
   run:
     - importlib-metadata
-    - importlib-resources
+    - importlib_resources
     - python >=3.7
+
 test:
   source_files:
-    - tests
+    - src/tests
   requires:
     - mock
-    - nodejs
+    - nltk
+    - nodejs >=18,<19
     - pip
     - pytest
+    - pytest-cov
     - pytest-timeout
   imports:
     - lunr
@@ -64,7 +80,7 @@ about:
   home: https://github.com/yeraydiazdiaz/lunr.py
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file: dist/LICENSE
   summary: A Python implementation of Lunr.js
   doc_url: https://lunr.readthedocs.io
   description: |-
