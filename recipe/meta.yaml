@@ -5,11 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/l/lunr/lunr-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/l/lunr/lunr-{{ version }}.tar.gz
   sha256: 00fc98f59b53c7ee0f6384c99e6c099f28cb746ecfff865bbc3705c3e9104bda
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
@@ -18,11 +18,11 @@ requirements:
     - hatch-fancy-pypi-readme >=22.8.0
     - hatchling
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
     - typing-extensions
     - importlib-metadata
-    - python >=3.7
+    - python >={{ python_min }}
 
 test:
   source_files:
@@ -33,6 +33,7 @@ test:
     - pip
     - pytest-cov
     - pytest-timeout
+    - python {{ python_min }}
   imports:
     - lunr
   commands:
