@@ -23,7 +23,7 @@ requirements:
     - hatch-fancy-pypi-readme >=22.8.0
     - hatchling
     - pip
-    - python ${{ python_min }}
+    - python ${{ python_min }}.*
   run:
     - typing-extensions
     - importlib-metadata
@@ -45,7 +45,7 @@ tests:
         - nodejs 22.*
         - pytest-cov
         - pytest-timeout
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
     script:
       - python run_test.py
 
