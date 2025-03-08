@@ -35,7 +35,7 @@ def test_version_metadata() -> None:
 if __name__ == "__main__":
     sys.exit(
         # install node stuff
-        call([*NPM, "install"], cwd="tests/acceptance_tests/javascript")
+        call([NPM, "install"], cwd="tests/acceptance_tests/javascript")
         # run the tests
         or call([*COV, *RUN, *PYTEST, __file__, "tests"])
         # maybe run coverage

@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/l/lunr/lunr-${{ version }}.tar.gz
-  sha256: 00fc98f59b53c7ee0f6384c99e6c099f28cb746ecfff865bbc3705c3e9104bda
+  sha256: b46cf5059578d277a14bfc901bb3d5666d013bf73c035331ac0222fdac358228
 
 build:
   number: 0
