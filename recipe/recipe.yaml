@@ -4,6 +4,8 @@ schema_version: 1
 context:
   version: "0.8.1"
   python_check_max: "3.15"
+  node_min: "24.22.2"
+  node_max: "25"
 
 package:
   name: lunr
@@ -45,10 +47,11 @@ tests:
   - files:
       source:
         - tests/
+        - pyproject.toml
     requirements:
       run:
         - nltk
-        - nodejs 24.*
+        - nodejs >=${{ node_min }},<${{ node_max }}
         - pytest-cov
         - pytest-timeout
         - python ${{ python_min }}.*

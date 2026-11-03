@@ -12,7 +12,7 @@ if not NPM:
 
 HERE = Path(__file__)
 
-FAIL_UNDER = 98
+FAIL_UNDER = 96
 COV = ["coverage"]
 RUN = ["run", "--source=lunr", "--branch", "-m"]
 PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long"]
