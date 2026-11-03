@@ -4,7 +4,7 @@ schema_version: 1
 context:
   version: "0.8.1"
   python_check_max: "3.15"
-  node_min: "24.22.2"
+  node_min: "24.22.1"
   node_max: "25"
 
 package:
