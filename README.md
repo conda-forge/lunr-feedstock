@@ -3,11 +3,13 @@ About lunr-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lunr-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/yeraydiazdiaz/lunr.py
+Home: https://pypi.org/project/lunr
 
 Package license: MIT
 
 Summary: A Python implementation of Lunr.js
+
+Development: https://github.com/yeraydiazdiaz/lunr.py
 
 Documentation: https://lunr.readthedocs.io/
 

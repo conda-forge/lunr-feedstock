@@ -41,7 +41,7 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}.*
-        - ${{ python_check_maxs }}.*
+        - ${{ python_check_max }}.*
   - files:
       source:
         - tests/
